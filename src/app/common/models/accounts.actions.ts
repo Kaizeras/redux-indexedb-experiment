@@ -5,7 +5,10 @@ export const AccountActionTypes =  {
   LOAD_SUCCESS: '[Accounts] load accounts successful',
   LOAD_FAILURE: '[Accounts] load accounts failure',
   GET: '[Accounts] get from db',
-  GET_SUCCESS: '[Accounts] get from db success'
+  GET_SUCCESS: '[Accounts] get from db success',
+  CLEAR: '[Accounts] clear from db',
+  CLEAR_SUCCESS: '[Accounts] clear from db success',
+  CLEAR_FAILURE: '[Accounts] clear from db failure'
 };
 
 
@@ -44,10 +47,31 @@ export class GetAccountsSuccessAction implements Action {
   }
 }
 
+export class ClearAccountsAction implements Action {
+  type = AccountActionTypes.CLEAR;
+
+  constructor() {
+  }
+}
+
+
+export class ClearAccountsSuccessAction implements Action {
+  type = AccountActionTypes.CLEAR_SUCCESS;
+
+  constructor(public payload:any) {
+  }
+}
+
+export class ClearFaliureAccountsAction implements Action {
+  type = AccountActionTypes.CLEAR_FAILURE;
+
+  constructor() {
+  }
+}
+
 
 export type AccountsActions =
   LoadAccountsAction|
   LoadAccountsFailedAction|
   LoadAccountsSuccessAction|
-  GetAccountsAction |
-    GetAccountsSuccessAction
+  GetAccountsAction | GetAccountsSuccessAction | ClearFaliureAccountsAction | ClearAccountsSuccessAction | ClearAccountsAction

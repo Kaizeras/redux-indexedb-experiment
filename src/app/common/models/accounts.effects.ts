@@ -12,6 +12,7 @@ import {AccountsService} from "./accounts.service";
 import {LoadAccountsSuccessAction} from "./accounts.actions";
 import {LoadAccountsFailedAction} from "./accounts.actions";
 import {GetAccountsSuccessAction} from "./accounts.actions";
+import {ClearAccountsSuccessAction} from "./accounts.actions";
 
 
 
@@ -38,6 +39,15 @@ export class AccountsEffects {
         return new GetAccountsSuccessAction(data);
       })
       .catch(() => Observable.of( new LoadAccountsFailedAction)));
+
+
+  @Effect() clearAccounts$ = this._actions.ofType(accounts.AccountActionTypes.CLEAR)
+    .switchMap(() => this._service.clearAccounts()
+      .then((data) => {
+        return new ClearAccountsSuccessAction(data);
+      })
+      .catch(() => Observable.of( new LoadAccountsFailedAction)));
+
 
 
 

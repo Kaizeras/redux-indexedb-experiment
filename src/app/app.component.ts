@@ -15,7 +15,7 @@ import {Observable} from "rxjs";
 })
 export class AppComponent implements OnInit {
   timeout: any;
-  title = 'app works!';
+
   public accounts$:Observable<any>;
   public columns:any = [
     {name: '_id'},
@@ -56,6 +56,10 @@ export class AppComponent implements OnInit {
 
   getData() {
     this.store.dispatch(new accounts.GetAccountsAction());
+  }
+
+  clearData() {
+    this.store.dispatch(new accounts.ClearAccountsAction());
   }
 }
 

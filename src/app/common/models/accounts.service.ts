@@ -27,7 +27,6 @@ export class AccountsService {
   }
 
   loadAccounts() {
-
     return this.http.get('http://localhost:3000/accounts').map((res:Response) => {
         let data = res.json();
         for (let i in data) {
@@ -47,6 +46,16 @@ export class AccountsService {
 
     });
   }
+
+
+  clearAccounts() {
+    return this.db.clear('accounts').then((res) => {
+       return [];
+    }, (error) => {
+
+    });
+  }
+
 
 
 

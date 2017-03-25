@@ -1,8 +1,7 @@
-<h1>
-  {{title}}
-</h1>
+
 <button (click)="loadData()">Load data</button>
 <button (click)="getData()">Get data</button>
+<button (click)="clearData()">Clear data</button>
 <ngx-datatable
   [rows]="accounts$ | async"
   [columns]="columns"  [columnMode]="'standard'"

@@ -40,6 +40,7 @@ export function reducer(state = initialState, action:accounts.AccountsActions): 
 
     }
 
+    case accounts.AccountActionTypes.CLEAR:
     case accounts.AccountActionTypes.GET: {
 
       return Object.assign({}, state, {
@@ -49,6 +50,7 @@ export function reducer(state = initialState, action:accounts.AccountsActions): 
 
     }
 
+    case accounts.AccountActionTypes.CLEAR_SUCCESS:
     case accounts.AccountActionTypes.GET_SUCCESS: {
 
       const data = action['payload'];
